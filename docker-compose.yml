@@ -19,3 +19,15 @@ services:
       - "traefik.backend=portainer"
       - "traefik.port=9000" 
       - "traefik.frontend.rule=Host:portainer.weberhome.lan"
+  portainer-backup:
+    image: tecnativa/duplicity:latest
+    container_name: portainer-backup
+    restart: always
+    hostname: portainer-backup
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /srv/docker/portainer:/mnt/backup/src
+      - /media/ops/backups/docker/portainer:/backup
+    environment:
+        # Duplicity options
+        DST: file:///backup
