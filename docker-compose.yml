@@ -25,10 +25,10 @@ services:
     restart: always
     hostname: portainer-backup
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /srv/docker/portainer:/mnt/backup/src
       - /media/ops/backups/docker/portainer:/backup
+    volumes_from:
+      - portainer:ro
     environment:
-        # Duplicity options
         DST: file:///backup
+        SRC: /data
         OPTIONS: --no-encryption
