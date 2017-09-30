@@ -31,3 +31,4 @@ services:
     environment:
         # Duplicity options
         DST: file:///backup
+        OPTIONS: –no-encryption
