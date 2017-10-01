@@ -16,6 +16,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /srv/docker/portainer:/data
     labels:
+      - "traefik.enable=true"
       - "traefik.backend=portainer"
-      - "traefik.port=9000" 
+      - "traefik.port=9000"
       - "traefik.frontend.rule=Host:portainer.weberhome.lan"
