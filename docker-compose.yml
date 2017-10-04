@@ -19,4 +19,4 @@ services:
       - "traefik.enable=true"
       - "traefik.backend=portainer"
       - "traefik.port=9000"
-      - "traefik.frontend.rule=Host:portainer.weberhome.lan"
+      - "traefik.frontend.rule=Host:portainer.weberhome.lan, portainer"
